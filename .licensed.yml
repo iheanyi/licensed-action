@@ -3,5 +3,8 @@ allowed:
   - mit
   - cc0-1.0
   - unlicense
+  - apache-2.0
 
 ignored:
+  rubygem:
+    - "pathname-common_prefix"
