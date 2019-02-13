@@ -6,7 +6,7 @@ LABEL "com.github.actions.icon"="activity"
 LABEL "com.github.actions.color"="yellow"
 
 RUN apk update
-RUN apk add -y build-essential libpq-dev cmake language-pack-en bash curl
+RUN apk add build-essential libpq-dev cmake language-pack-en bash curl
 
 RUN gem install licensed
 
