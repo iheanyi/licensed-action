@@ -6,7 +6,7 @@ LABEL "com.github.actions.icon"="activity"
 LABEL "com.github.actions.color"="yellow"
 
 RUN curl -sL https://deb.nodesource.com/setup_10.x | bash - && apt-get install -y nodejs
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
+RUN apt-get update -qq && apt-get install -y build-essential libpq-dev cmake
 
 COPY Gemfile .
 RUN bundle install
