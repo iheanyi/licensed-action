@@ -7,4 +7,4 @@ allowed:
 
 ignored:
   rubygem:
-    - "pathname-common_prefix"
+    - pathname-common_prefix
