@@ -2,9 +2,9 @@
 set -e
 
 if [[ -z "$CONFIG_PATH" ]]; then
-  licensed cache
-  licensed status
+  bundle exec licensed cache
+  bundle exec licensed status
 else
-  licensed cache -c $CONFIG_PATH
-  licensed status -c $CONFIG_PATH
+  bundle exec licensed cache -c $CONFIG_PATH
+  bundle exec licensed status -c $CONFIG_PATH
 fi
