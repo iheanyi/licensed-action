@@ -15,6 +15,7 @@ ADD https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz /tmp/go.tar.gz
 RUN tar -C /usr/local -xzf /tmp/go.tar.gz
 ENV PATH $PATH:/usr/local/go/bin
 
+COPY Gemfile .
 RUN bundle install
 # RUN gem install licensed
 
