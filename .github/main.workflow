@@ -1,6 +1,9 @@
 workflow "check licenses" {
   on = "push"
-  resolves = ["Check Licenses with Custom Configuration"]
+  resolves = [
+    "Check Licenses with Custom Configuration",
+    "Check Licenses"
+  ]
 }
 
 action "Check Licenses" {
@@ -9,7 +12,6 @@ action "Check Licenses" {
 
 action "Check Licenses with Custom Configuration" {
   uses = "./"
-  needs = ["Check Licenses"]
   env = {
     CONFIG_PATH = ".github/custom-licensed.yml"
   }
