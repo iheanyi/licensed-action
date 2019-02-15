@@ -7,20 +7,32 @@ setup_git_env () {
   git config user.email "actions@github.com"
 }
 
+do_git_push () {
+  echo "New licenses found, pushing to repo..."
+  git add .licenses/
+  git commit -m "Update licenses cache."
+  git push --set-upstream origin $(git symbolic-ref --short HEAD)
+  echo "Finish pushing license cache to repo."
+}
+
 push_new_licenses () {
   if [ -n "$(git status --porcelain .licenses)" ]; then
     setup_git_env
-    echo "New licenses found, pushing to repo..."
-    git add .licenses/
-    git commit -m "Update licenses cache."
-    git push --set-upstream origin $(git symbolic-ref --short HEAD)
-    echo "Finish pushing license cache to repo."
+    do_git_push
   else
     echo "No new licenses found, skipping push..."
   fi
 }
 
 echo "Checking open-source licenses..."
+
+if [ ! -d node_modules ]; then
+  if [ -f package.json ]; then
+    echo "node_modules not found, package.json found, installing npm dependencies..."
+    npm install
+  fi
+fi
+
 if [[ -z "$CONFIG_PATH" ]]; then
   bundle exec licensed cache
   push_new_licenses

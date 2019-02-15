@@ -11,6 +11,9 @@ ENV LANGUAGE en_US.UTF-8
 RUN apt-get update -qq
 RUN apt-get install -y build-essential libpq-dev cmake locales locales-all bash curl
 
+RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
+RUN apt-get -y install nodejs
+
 ADD https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz /tmp/go.tar.gz
 RUN tar -C /usr/local -xzf /tmp/go.tar.gz
 ENV PATH $PATH:/usr/local/go/bin
@@ -18,6 +21,10 @@ ENV PATH $PATH:/usr/local/go/bin
 COPY Gemfile .
 COPY Gemfile.lock .
 RUN bundle install
+
+# We need to install our NPM dependencies as necessary.
+COPY package.json .
+COPY package-lock.json .
 
 COPY check-licenses.sh /usr/bin/check-licenses
 
