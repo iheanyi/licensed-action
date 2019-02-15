@@ -2,21 +2,23 @@
 set -e
 bundle install
 
-push_new_licenses () {
-  echo "List origins"
-  git remote get-url --all origin
-  echo "Show git status"
-  git status
-
+setup_git_env () {
   git config --global user.name "GitHub Actions"
   # TODO: Figure out how to perhaps set this to a more sane value.
   git config --global user.email "test@example.com"
+
+  # git fetch
+  # git pull
+}
+
+push_new_licenses () {
+  setup_git_env
   REPO_URL="https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
   if [ -n "$(git status --porcelain .licenses)" ]; then
     echo "New licenses found, pushing to repo..."
     # TODO: Add git add and git pushing logic.
     git add .licenses/
-    git commit -am "Update licenses cache."
+    git commit -m "Update licenses cache."
     git push
     echo "Finish pushing license cache to repo."
   else
