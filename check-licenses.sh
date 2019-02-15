@@ -3,8 +3,12 @@ set -e
 
 setup_git_env () {
   echo "Setting up git environment..."
-  git config user.name "GitHub Actions"
-  git config user.email "actions@github.com"
+  if [ ! -n "$(git config user.name)" ]; then
+    git config user.name "GitHub Actions"
+  fi
+  if [ ! -n "$(git config user.email)" ]; then
+    git config user.email "actions@github.com"
+  fi
 }
 
 do_git_push () {
