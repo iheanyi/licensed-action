@@ -9,9 +9,8 @@ setup_git_env () {
 }
 
 push_new_licenses () {
-  setup_git_env
-
   if [ -n "$(git status --porcelain .licenses)" ]; then
+    setup_git_env
     echo "New licenses found, pushing to repo..."
     git add .licenses/
     git commit -m "Update licenses cache."
