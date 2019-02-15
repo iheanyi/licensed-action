@@ -13,7 +13,7 @@ setup_git_env () {
 
 push_new_licenses () {
   setup_git_env
-  REPO_URL="https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+  REPO_URL="https://$GITHUB_TOKEN:x-oauth-basic@github.com/$GITHUB_REPOSITORY.git"
   if [ -n "$(git status --porcelain .licenses)" ]; then
     echo "New licenses found, pushing to repo..."
     # TODO: Add git add and git pushing logic.
