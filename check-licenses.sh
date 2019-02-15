@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
-bundle install
+# bundle install
 
 setup_git_env () {
   echo "Setting up git environment..."

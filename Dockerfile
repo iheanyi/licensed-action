@@ -16,6 +16,7 @@ RUN tar -C /usr/local -xzf /tmp/go.tar.gz
 ENV PATH $PATH:/usr/local/go/bin
 
 COPY Gemfile .
+COPY Gemfile.lock .
 
 COPY check-licenses.sh /usr/bin/check-licenses
 
