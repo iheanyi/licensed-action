@@ -3,11 +3,17 @@ set -e
 bundle install
 
 push_new_licenses () {
+  echo "Show git status"
   git status
+
+  echo "Debugging repo_url"
+  REPO_URL="https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
   if [ -n "$(git status --porcelain .licenses)" ]; then
     echo "New licenses found, pushing to repo..."
     # TODO: Add git add and git pushing logic.
-    # git add .licenses/
+    git add .licenses/
+    git commit -am "Update licenses cache."
+    git push
     echo "Finish pushing license cache to repo."
   else
     echo "No new licenses found."
