@@ -8,3 +8,4 @@ allowed:
 ignored:
   rubygem:
     - pathname-common_prefix
+    - bundler
