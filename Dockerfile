@@ -17,6 +17,7 @@ ENV PATH $PATH:/usr/local/go/bin
 
 COPY Gemfile .
 COPY Gemfile.lock .
+RUN bundle install
 
 COPY check-licenses.sh /usr/bin/check-licenses
 
