@@ -19,7 +19,7 @@ push_new_licenses () {
     # TODO: Add git add and git pushing logic.
     git add .licenses/
     git commit -m "Update licenses cache."
-    git push
+    git push --set-upstream origin $(git symbolic-ref --short HEAD)
     echo "Finish pushing license cache to repo."
   else
     echo "No new licenses found."
