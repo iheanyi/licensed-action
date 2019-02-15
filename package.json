@@ -16,5 +16,8 @@
     "url": "https://github.com/iheanyi/licensed-action/issues"
   },
   "homepage": "https://github.com/iheanyi/licensed-action#readme",
-  "devDependencies": {}
+  "devDependencies": {},
+  "dependencies": {
+    "react": "^16.8.2"
+  }
 }
