@@ -8,6 +8,7 @@ push_new_licenses () {
   echo "Show git status"
   git status
 
+  git config --global user.name "github-actions"
   echo "Debugging repo_url"
   REPO_URL="https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
   if [ -n "$(git status --porcelain .licenses)" ]; then
