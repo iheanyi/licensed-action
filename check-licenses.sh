@@ -4,9 +4,9 @@ bundle install
 
 setup_git_env () {
   echo "Setting up git environment..."
-  # git config --global user.name "GitHub Actions"
+  git config --global user.name "GitHub Actions"
   # TODO: Figure out how to perhaps set this to a more sane value.
-  # git config --global user.email "test@example.com"
+  git config --global user.email "test@example.com"
 
   # git fetch
   # git pull
