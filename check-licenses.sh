@@ -1,11 +1,11 @@
 #!/bin/bash
 set -e
-bundle install
+# bundle install
 
 setup_git_env () {
   echo "Setting up git environment..."
-  git config --global user.name "GitHub Actions"
-  git config --global user.email "actions@github.com"
+  git config user.name "GitHub Actions"
+  git config user.email "actions@github.com"
 }
 
 push_new_licenses () {
