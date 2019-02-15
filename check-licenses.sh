@@ -4,11 +4,9 @@ set -e
 # setup_git_env is responsible for setting a username and email for updating the 
 # cache of licenses.
 setup_git_env () {
-  echo "Setting up git environment..."
-  if [ ! -n "$(git config user.name)" ]; then
-    git config user.name "GitHub Actions"
-  fi
   if [ ! -n "$(git config user.email)" ]; then
+    echo "Setting up git environment..."
+    git config user.name "GitHub Actions"
     git config user.email "actions@github.com"
   fi
 }
