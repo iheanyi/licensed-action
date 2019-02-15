@@ -10,7 +10,7 @@ setup_git_env () {
 
 push_new_licenses () {
   setup_git_env
-  REPO_URL="https://$GITHUB_TOKEN:x-oauth-basic@github.com/$GITHUB_REPOSITORY.git"
+
   if [ -n "$(git status --porcelain .licenses)" ]; then
     echo "New licenses found, pushing to repo..."
     git add .licenses/
@@ -18,7 +18,7 @@ push_new_licenses () {
     git push --set-upstream origin $(git symbolic-ref --short HEAD)
     echo "Finish pushing license cache to repo."
   else
-    echo "No new licenses found."
+    echo "No new licenses found, skipping push..."
   fi
 }
 
