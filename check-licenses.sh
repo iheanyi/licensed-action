@@ -5,7 +5,7 @@ bundle install
 setup_git_env () {
   echo "Setting up git environment..."
   git config --global user.name "GitHub Actions"
-  git config --global user.email "hubot@github.com"
+  git config --global user.email "actions@github.com"
 }
 
 push_new_licenses () {
