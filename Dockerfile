@@ -5,7 +5,9 @@ LABEL "com.github.actions.description"="Checks open source licenses in a project
 LABEL "com.github.actions.icon"="activity"
 LABEL "com.github.actions.color"="yellow"
 
-ENV LANG C.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US.UTF-8
 RUN apt-get update -qq
 RUN apt-get install -y build-essential libpq-dev cmake locales locales-all bash curl
 
