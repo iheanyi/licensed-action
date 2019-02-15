@@ -3,6 +3,8 @@ set -e
 bundle install
 
 push_new_licenses () {
+  git remote get-url --all origin
+  git status
   if [ -n "$(git status --porcelain .licenses)" ]; then
     echo "New licenses found, pushing to repo..."
     # TODO: Add git add and git pushing logic.
