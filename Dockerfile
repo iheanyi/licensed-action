@@ -7,7 +7,11 @@ LABEL "com.github.actions.color"="yellow"
 
 ENV LANG C.UTF-8
 RUN apt-get update -qq
-RUN apt-get install -y build-essential libpq-dev cmake language-pack-en bash curl
+RUN apt-get install -y build-essential libpq-dev cmake locales locales-all bash curl
+
+ADD https://dl.google.com/go/go1.10.2.linux-amd64.tar.gz /tmp/go.tar.gz
+RUN tar -C /usr/local -xzf /tmp/go.tar.gz
+ENV PATH $PATH:/usr/local/go/bin
 
 RUN bundle install
 # RUN gem install licensed
