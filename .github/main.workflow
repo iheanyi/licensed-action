@@ -7,6 +7,7 @@ workflow "check licenses" {
 
 action "Check Licenses" {
   uses = "./"
+  secrets = ["GITHUB_TOKEN"]
 }
 
 action "Check Licenses with Custom Configuration" {
