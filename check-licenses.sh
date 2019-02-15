@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+# setup_git_env is responsible for setting a username and email for updating the 
+# cache of licenses.
 setup_git_env () {
   echo "Setting up git environment..."
   if [ ! -n "$(git config user.name)" ]; then
@@ -11,6 +13,7 @@ setup_git_env () {
   fi
 }
 
+# do_git_push actually pushes changes to the repo.
 do_git_push () {
   echo "New licenses found, pushing to repo..."
   git add .licenses/
@@ -19,6 +22,7 @@ do_git_push () {
   echo "Finish pushing license cache to repo."
 }
 
+# push_new_licenses sets up and pushes changes to the licenses
 push_new_licenses () {
   if [ -n "$(git status --porcelain .licenses)" ]; then
     setup_git_env
@@ -28,14 +32,20 @@ push_new_licenses () {
   fi
 }
 
+# install_npm_deps_if_necessary installs npm dependencies if there's a
+# package.json file.
+install_npm_deps_if_necessary() {
+  if [ ! -d node_modules ]; then
+    if [ -f package.json ]; then
+      echo "node_modules not found, package.json found, installing npm dependencies..."
+      npm install
+    fi
+  fi
+}
+
 echo "Checking open-source licenses..."
 
-if [ ! -d node_modules ]; then
-  if [ -f package.json ]; then
-    echo "node_modules not found, package.json found, installing npm dependencies..."
-    npm install
-  fi
-fi
+install_npm_deps_if_necessary
 
 if [[ -z "$CONFIG_PATH" ]]; then
   bundle exec licensed cache
