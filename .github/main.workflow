@@ -1,7 +1,6 @@
 workflow "check licenses" {
   on = "push"
   resolves = [
-    "Check Licenses with Custom Configuration",
     "Check Licenses"
   ]
 }
