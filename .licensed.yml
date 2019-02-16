@@ -5,7 +5,7 @@ allowed:
   - unlicense
   - apache-2.0
 
-ignored:
+reviewed:
   rubygem:
     - pathname-common_prefix
     - bundler
