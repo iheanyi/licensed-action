@@ -1,9 +1,0 @@
----
-name: bundler
-version: 1.17.2
-type: bundler
-summary: The best way to manage your application's dependencies
-homepage: http://bundler.io
-license: none
-licenses: []
-notices: []
