@@ -5,7 +5,13 @@ allowed:
   - unlicense
   - apache-2.0
 
-ignored:
+reviewed:
+  bundler:
+    - pathname-common_prefix
   rubygem:
     - pathname-common_prefix
+    - bundler
+
+ignored:
+  bundler:
     - bundler

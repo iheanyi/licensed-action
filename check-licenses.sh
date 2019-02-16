@@ -46,12 +46,12 @@ echo "Checking open-source licenses..."
 install_npm_deps_if_necessary
 
 if [[ -z "$CONFIG_PATH" ]]; then
-  bundle exec licensed cache
+  licensed cache
   push_new_licenses
-  bundle exec licensed status
+  licensed status
 else
-  bundle exec licensed cache -c $CONFIG_PATH
+  licensed cache -c $CONFIG_PATH
   push_new_licenses
-  bundle exec licensed status -c $CONFIG_PATH
+  licensed status -c $CONFIG_PATH
 fi
 echo "Finished checking licenses, all clear!"

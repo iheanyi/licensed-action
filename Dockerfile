@@ -21,6 +21,7 @@ ENV PATH $PATH:/usr/local/go/bin
 COPY Gemfile .
 COPY Gemfile.lock .
 RUN bundle install
+RUN gem install licensed
 
 # We need to install our NPM dependencies as necessary.
 COPY package.json .
