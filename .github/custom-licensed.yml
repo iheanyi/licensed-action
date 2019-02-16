@@ -8,7 +8,10 @@ allowed:
 reviewed:
   bundler:
     - pathname-common_prefix
-    - bundler
   rubygem:
     - pathname-common_prefix
+    - bundler
+
+ignored:
+  bundler:
     - bundler

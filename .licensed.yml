@@ -6,9 +6,12 @@ allowed:
   - apache-2.0
 
 reviewed:
+  bundler:
+    - pathname-common_prefix
   rubygem:
     - pathname-common_prefix
     - bundler
+
+ignored:
   bundler:
-    - pathname-common_prefix
     - bundler
