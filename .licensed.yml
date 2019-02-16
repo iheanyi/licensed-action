@@ -6,6 +6,6 @@ allowed:
   - apache-2.0
 
 ignored:
-  rubygem:
+  bundler:
     - pathname-common_prefix
     - bundler
