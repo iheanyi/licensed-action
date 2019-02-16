@@ -30,6 +30,13 @@ push_new_licenses () {
   fi
 }
 
+install_ruby_deps_if_necessary () {
+ if [ -f Gemfile.lock ]; then
+  echo "Gemfile.lock found, install bundler dependencies..."
+  bundle install
+ fi
+}
+
 # install_npm_deps_if_necessary installs npm dependencies if there's a
 # package.json file.
 install_npm_deps_if_necessary() {
@@ -42,8 +49,8 @@ install_npm_deps_if_necessary() {
 }
 
 echo "Checking open-source licenses..."
-
 install_npm_deps_if_necessary
+install_ruby_deps_if_necessary
 
 if [[ -z "$CONFIG_PATH" ]]; then
   licensed cache
