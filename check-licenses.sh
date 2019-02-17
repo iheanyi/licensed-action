@@ -4,7 +4,7 @@ set -e
 # setup_git_env is responsible for setting a username and email for updating the 
 # cache of licenses.
 setup_git_env () {
-  if [ ! -n "$(git config user.email)" ]; then
+  if [ -z "$(git config user.email)" ]; then
     echo "Setting up git environment..."
     git config user.name "GitHub Actions"
     git config user.email "actions@github.com"
@@ -16,7 +16,7 @@ do_git_push () {
   echo "New licenses found, pushing to repo..."
   git add .licenses/
   git commit -m "Update licenses cache."
-  git push --set-upstream origin $(git symbolic-ref --short HEAD)
+  git push --set-upstream origin "$(git symbolic-ref --short HEAD)"
   echo "Finish pushing license cache to repo."
 }
 
@@ -59,8 +59,8 @@ if [[ -z "$CONFIG_PATH" ]]; then
   push_new_licenses
   licensed status
 else
-  licensed cache -c $CONFIG_PATH
+  licensed cache -c "$CONFIG_PATH"
   push_new_licenses
-  licensed status -c $CONFIG_PATH
+  licensed status -c "$CONFIG_PATH"
 fi
 echo "Finished checking licenses, all clear!"
