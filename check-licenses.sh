@@ -13,6 +13,7 @@ setup_git_env () {
 
 # do_git_push actually pushes changes to the repo.
 do_git_push () {
+  setup_git_env
   echo "New licenses found, pushing to repo..."
   git add .licenses/
   git commit -m "Update licenses cache."
@@ -23,7 +24,6 @@ do_git_push () {
 # push_new_licenses sets up and pushes changes to the licenses
 push_new_licenses () {
   if [ -n "$(git status --porcelain .licenses)" ]; then
-    setup_git_env
     do_git_push
   else
     echo "No new licenses found, skipping push..."
