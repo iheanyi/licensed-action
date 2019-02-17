@@ -32,7 +32,7 @@ push_new_licenses () {
 
 install_ruby_deps_if_necessary () {
  if [ -f Gemfile.lock ]; then
-  echo "Gemfile.lock found, install bundler dependencies..."
+  echo "Gemfile.lock found, installing ruby dependencies..."
   bundle install
  fi
 }
