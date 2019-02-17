@@ -30,6 +30,8 @@ push_new_licenses () {
   fi
 }
 
+# install_ruby_deps_if_necessary installs Ruby dependencies if there's a
+# Gemfile.lock file
 install_ruby_deps_if_necessary () {
  if [ -f Gemfile.lock ]; then
   echo "Gemfile.lock found, installing ruby dependencies..."
