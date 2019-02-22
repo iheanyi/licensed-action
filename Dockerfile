@@ -9,7 +9,7 @@ ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
 RUN apt-get update -qq
-RUN apt-get install -y build-essential libpq-dev cmake locales locales-all bash curl
+RUN apt-get install -y build-essential libpq-dev cmake locales python locales-all bash curl
 
 RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
 RUN apt-get -y install nodejs
