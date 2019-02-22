@@ -8,9 +8,11 @@ LABEL "com.github.actions.color"="yellow"
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
+RUN apt-get update
+RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get update -qq
-RUN apt-get install -y software-properties-common build-essential libpq-dev cmake locales python3.6 locales-all bash curl
+RUN apt-get install -y build-essential libpq-dev cmake locales python3.6 locales-all bash curl
 
 RUN curl -sL https://deb.nodesource.com/setup_11.x  | bash -
 RUN apt-get -y install nodejs
