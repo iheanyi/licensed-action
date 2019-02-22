@@ -8,6 +8,8 @@ LABEL "com.github.actions.color"="yellow"
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
+RUN apt-get install software-properties-common
+RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get update -qq
 RUN apt-get install -y build-essential libpq-dev cmake locales python3.6 locales-all bash curl
 
