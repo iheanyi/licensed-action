@@ -5,6 +5,9 @@ allowed:
   - unlicense
   - apache-2.0
 
+python:
+  virtual_env_dir: "./venv"
+
 reviewed:
   bundler:
     - pathname-common_prefix
