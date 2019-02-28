@@ -8,7 +8,7 @@ LABEL "com.github.actions.color"="yellow"
 ENV LC_ALL en_US.UTF-8
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US.UTF-8
-RUN apt-get update
+RUN apt-get update -qq
 RUN apt-get install -y software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa
 RUN apt-get update -qq
