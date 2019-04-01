@@ -56,7 +56,10 @@ install_ruby_deps_if_necessary
 
 if [[ -z "$CONFIG_PATH" ]]; then
   licensed cache
-  push_new_licenses
+  # Only push new licenses when GitHub Token is set.
+  if [[ -n  "$GITHUB_TOKEN" ]]; then
+    push_new_licenses
+  fi
   licensed status
 else
   licensed cache -c "$CONFIG_PATH"
